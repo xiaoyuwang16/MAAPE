@@ -90,14 +90,14 @@ visualize()
 
 ## Data Format Requirements
 
-Input files:
-Protein sequences in FASTA format
+Input files:\
+Protein sequences in FASTA format\
 Order information in text format (for visualization)
 
-Output:
-Embedding files (.npy)
-Path information (.pkl)
-Edge weights and graph structure (.pkl, .txt)
+Output:\
+Embedding files (.npy)\
+Path information (.pkl)\
+Edge weights and graph structure (.pkl, .txt)\
 Visualization plots
 
 
