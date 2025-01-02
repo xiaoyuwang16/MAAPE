@@ -52,7 +52,7 @@ typing-extensions
 
 ## Installation
 ```bash
-git clone https://github.com/yourusername/MAAPE.git
+git clone https://github.com/xiaoyuwang16/MAAPE.git
 cd MAAPE
 pip install -r requirements.txt
 ```
