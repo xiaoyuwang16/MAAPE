@@ -60,31 +60,31 @@ pip install -r requirements.txt
 ## Usage
 1. Generate Embeddings
 ```python
-from examples.generate_embeddings import main as generate_embeddings
+from example._1_generate_embeddings import main as generate_embeddings
 generate_embeddings()
 ```
 
 3. Generate Paths
 ```python
-from examples.generate_paths import main as generate_paths
+from examples._2_generate_paths import main as generate_paths
 generate_paths()
 ```
 
 4. Calculate Weights and Edges
 ```python
-from examples.calculate_weights_and_edges import main as calculate_weights
+from examples._3_calculate_weights_and_edges import main as calculate_weights
 calculate_weights()
 ```
 
 5. Build and Analyze Graph
 ```python
-from examples.build_and_analyze_graph import main as analyze_graph
+from examples._4_build_and_analyze_graph import main as analyze_graph
 analyze_graph()
 ```
 
 6. Visualize Results
 ```python
-from examples.visualize_maape import main as visualize
+from examples._5_visualize_maape import main as visualize
 visualize()
 ```
 
