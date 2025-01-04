@@ -60,6 +60,21 @@ cd MAAPE
 pip install -r requirements.txt
 ```
 
+## Data Format Requirements
+
+Input files:\
+1. Protein sequences in FASTA format, there's a `/path/to/MAAPE/example/test.fasta` in example folder which contains 110 Rubisco protein sequences\
+2. Order index file: `/path/to/MAAPE/example/order_index.txt`
+   Contains sequence indices and their corresponding protein categories. This information is used for node coloring in the visualization.
+3. Similarity threshold file for determining whether sub-vectors of different window sizes are equivalent：`/path/to/MAAPE/example/converted_thresholds_pca.npy`，this file is derived from threshold_window_size_5 = 0.00001, with thresholds for other window sizes converted proportionally using square root scaling.
+   
+Output:\
+Embedding files (.npy), there is a embedding file already L2 normalized and reduced to 110 dimensions: `/path/to/MAAPE/example/output/normalized_pca_embeddings.npy`\
+Path information (.pkl)\
+Edge weights and graph structure (.pkl, .txt)\
+Visualization plots
+
+
 ## Usage
 ```python
 import os
@@ -107,24 +122,7 @@ aggregated_maape()
 ```
 Step 5 & 6 will generate MAAPE graph and its condensed version.
 
-MAAPE graph of /path/to/MAAPE/example/test.fasta:
+MAAPE graph of ‘/path/to/MAAPE/example/test.fasta’:
 ![下载](https://github.com/user-attachments/assets/5e1489d7-51e0-4432-8167-75ebf98544d8)
 Condensed graph:
 ![下载 (1)](https://github.com/user-attachments/assets/dcc2c80d-96a2-4f7e-b503-9e086225395f)
-
-
-
-
-## Data Format Requirements
-
-Input files:\
-Protein sequences in FASTA format\
-Order information in text format (for visualization)
-
-Output:\
-Embedding files (.npy)\
-Path information (.pkl)\
-Edge weights and graph structure (.pkl, .txt)\
-Visualization plots
-
-
