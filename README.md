@@ -22,6 +22,9 @@ Maps previously calculated directions and weights onto KNN edges\
 Creates a structured representation of sequence relationships
 5. Visualization\
 Generates the final MAAPE (Molecular Assembly And Protein Engineering) network
+6. Aggregated visualization\
+Generates a nodes clustered version of MAAPE graph, to gain condensed version of protein evolution relationships.
+
 
 ## Features
 - ESM2-based protein sequence embedding
@@ -58,35 +61,59 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-1. Generate Embeddings
 ```python
-from example._1_generate_embeddings import main as generate_embeddings
+import os
+import sys
+maape_path = '/path/to/MAAPE' 
+sys.path.append(maape_path)
+
+import importlib.util
+
+def import_file(file_path):
+    spec = importlib.util.spec_from_file_location("module_name", file_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+# 1. Generate Embeddings
+script = import_file('/path/to/MAAPE/example/_1_generate_embeddings.py')
+generate_embeddings = script.main
 generate_embeddings()
-```
 
-3. Generate Paths
-```python
-from examples._2_generate_paths import main as generate_paths
+# 2. Generate Paths
+script = import_file('/path/to/MAAPE/example/_2_generate_paths.py')
+generate_paths = script.main
 generate_paths()
-```
 
-4. Calculate Weights and Edges
-```python
-from examples._3_calculate_weights_and_edges import main as calculate_weights
+# 3. Calculate Weights and Edges
+script = import_file('/path/to/MAAPE/example/_3_calculate_weights_and_edges.py')
+calculate_weights = script.main
 calculate_weights()
-```
 
-5. Build and Analyze Graph
-```python
-from examples._4_build_and_analyze_graph import main as analyze_graph
-analyze_graph()
-```
+# 4. Build and Analyze Graph
+script = import_file('/path/to/MAAPE/example/_4_build_and_analyze_graph.py')
+build_and_analyze = script.main
+build_and_analyze()
 
-6. Visualize Results
-```python
-from examples._5_visualize_maape import main as visualize
-visualize()
+# 5. Visualize Results
+script = import_file('/path/to/MAAPE/example/_5_visualize_maape.py')
+maape_visual = script.main
+maape_visual()
+
+# 6. Visualize Aggregated Results
+script = import_file('/path/to/MAAPE/example/_6_aggregated_visualization.py')
+aggregated_maape = script.main
+aggregated_maape()
 ```
+Step 5 & 6 will generate MAAPE graph and its condensed version.
+
+MAAPE graph of /path/to/MAAPE/example/test.fasta:
+![下载](https://github.com/user-attachments/assets/5e1489d7-51e0-4432-8167-75ebf98544d8)
+Condensed graph:
+![下载 (1)](https://github.com/user-attachments/assets/dcc2c80d-96a2-4f7e-b503-9e086225395f)
+
+
+
 
 ## Data Format Requirements
 
