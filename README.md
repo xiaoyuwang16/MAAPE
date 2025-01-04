@@ -1,29 +1,32 @@
 # Modular Assembly Analysis of Protein Embeddings (MAAPE) algorithm
 
 A novel algorithm that integrates a k-nearest neighbour (KNN) similarity network with co-occurrence matrix analysis to extract evolutionary insights from protein language model (PLM) embeddings.
-This code implements a five-step pipeline for analyzing protein sequences and constructing directed similarity networks:
+This code implements a six-step pipeline for analyzing protein sequence evolution relationships and constructing their similarity networks:
 
 1. Embedding Generation\
 Processes input protein sequences\
 Utilizes the ESM-2 language model to generate sequence embeddings\
-Creates high-dimensional vector representations of protein sequences
+Normalization and dimension reduction
+
 2. Path Generation\
-Segments the embeddings into smaller sub-vectors\
-Identifies assembly paths between these sub-vectors\
+Sliding window segments the embeddings into multiple smaller sub-vectors\
+Identifies assembly Paths between these different window size sub-vectors\
 Maps potential connections between sequence segments
+
 3. Weight and Edge Calculation\
-Computes co-assembly relationships between input sequences based on identified paths\
+Computes co-assembly relationships between input sequences based on identified Paths\
 Determines edge directions between sequence pairs\
 Calculates edge weights based on sequence relationships\
 Generates a weighted, directed edge list
 
 4. Builds a K-nearest neighbor (KNN) similarity network\
-Maps previously calculated directions and weights onto KNN edges\
-Creates a structured representation of sequence relationships
+
 5. Visualization\
+Maps previously calculated directions and weights onto KNN edges\
 Generates the final MAAPE (Molecular Assembly And Protein Engineering) network
+
 6. Aggregated visualization\
-Generates a nodes clustered version of MAAPE graph, to gain condensed version of protein evolution relationships.
+Generates a nodes clustered and edge bundled version of MAAPE graph, to gain condensed version of protein evolution relationships.
 
 
 ## Features
@@ -38,7 +41,7 @@ Generates a nodes clustered version of MAAPE graph, to gain condensed version of
 
 ![graphical](https://github.com/user-attachments/assets/77610421-6d2d-44fb-bcb0-4944b8586c5a)
 
-
+MAAPE algorithm:
 ![MAAPE算法示意图](https://github.com/user-attachments/assets/b36e147d-d28e-4784-9292-de9e3ae33e7a)
 
 ##  Requirements
@@ -73,6 +76,29 @@ Embedding files (.npy), there is a embedding file already L2 normalized and redu
 Path information (.pkl)\
 Edge weights and graph structure (.pkl, .txt)\
 Visualization plots
+
+## Configuration
+Settings can be changed at `/path/to/MAAPE/constant.py`\
+These are parameters:
+
+1. WINDOW_SIZES\
+Used for sliding window analysis for sequence embedding, set multiple window sizes to capture sequence features at different scales.
+
+2. COLOR_SCHEME\
+Defines distinct color codes for different protein types\
+Used for visualization
+
+3. KNN Graph Parameters\
+KNN_K = 20: Sets the number of nearest neighbors for each node\
+KNN_THRESHOLD = 0.5: Defines the edge weight threshold
+
+5. PCA Parameters\
+PCA_COMPONENTS = 110: Sets the number of dimensions for dimensionality reduction, can't be too small for retaining key feature information
+
+6. Directory Settings\
+BASE_DIR: Sets the base working directory\
+OUTPUT_DIR: Sets the output directory
+
 
 
 ## Usage
