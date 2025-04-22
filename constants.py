@@ -21,5 +21,5 @@ KNN_THRESHOLD = 0.5
 PCA_COMPONENTS = 110 
 
 # Base directories
-BASE_DIR = Path("/content/drive/MyDrive/MAAPE/example")
+BASE_DIR = Path("/yourpath/MAAPE/example")
 OUTPUT_DIR = BASE_DIR / "output"
