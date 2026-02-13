@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17198064.svg)](https://doi.org/10.5281/zenodo.17198064)
 # Modular Assembly Analysis of Protein Embeddings (MAAPE) algorithm
 
 A novel algorithm that integrates a k-nearest neighbour (KNN) similarity network with co-occurrence matrix analysis to extract evolutionary insights from protein language model (PLM) embeddings.
